@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Избранное</title>
+        
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        
+        <script defer src="js/jquery-3.6.1.min.js"></script>
+        <script defer src="js/jquery-ui.min.js"></script>
+        <script defer src="js/slider.js"></script>
+        <script defer src="js/datepicker.js"></script>
+        <script defer src="js/main.js"></script>
+    </head>
+    
+    <body>
+        <header>
+            <section class="container">
+                <div id="city" title="Если ваш город определен неправильно, нажмите для выбора правильного города">Ваш город: <span></span></div>
+            </section>
+            <section class="container">
+                <a class="logo" href="index.html">
+                    <img src="images/fon/logo1.png">
+                </a>
+                <input type="text">
+                <button type="button" class="butthead">Поиск</button>
+                <div class="select" data-tooltip="Избранные объекты">
+                </div>
+                <button type="button" class="butthead" data-tooltip="Вход в личный кабинет / Регистрация">Войти</button>
+            </section>
+            <section class="container">
+                <nav class="topmenu">
+                    <a href="index.html"><span>Акция</span></a>
+                    <a href="catalog.html"><span>Каталог</span></a>
+                    <a href="order.html"><span>Избранное</span></a>
+                    <a href="contacts.html"><span>Контакты</span></a>
+                </nav>
+            </section>
+        </header>
+        
+        <main class="order">
+            <section class="container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="index">#</th>
+                            <th scope="col" class="name">Название</th>
+                            <th scope="col" class="qty">кв.м.</th>
+                            <th scope="col" class="price">Цена</th>
+                            <th scope="col" class="delete"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- список товаров генерим на лету -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                        <th scope="col" class="index"></th>
+                        <th scope="col" class="allsum" colspan="5">
+                            Итого:
+                            <span></span>
+                        </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+            
+            <section class="container">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Ваше имя</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="mail" class="form-label">Ваша почта</label>
+                        <input type="text" class="form-control" id="mail" name="mail">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Ваш телефон</label>
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="addr" class="form-label">Ваш адрес</label>
+                        <input type="text" class="form-control" id="addr" name="addr">
+                    </div>
+                    <label for="date" class="form-label">Желаемая получения</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="date" name="date" readonly>
+                        <button class="btn btn-outline-secondary icon" type="button">&#xe907;</button>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comm" class="form-label">Комментарий</label>
+                        <textarea class="form-control" id="comm" name="comm" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="agree" name="agree" checked>
+                        <label class="form-check-label" for="agree">Согласен на обработку моих персональных данных</label>
+                    </div>
+                    <div class="mb-3">
+                        <button type="button" class="btn btn-primary submit">Получить КП и драфт документов</button>
+                    </div>
+                </form>
+            </section>
+            
+            <section class="container empty">
+                <h1>У Вас нет избранных объектов</h1>
+                <p>Выберите объекты в каталоге</p>
+            </section>
+        </main>
+        
+        <footer>
+            <section class="container">
+                <div class="footmenu">
+                    <h3 class="hfootmenu">
+                        Партнёры
+                    </h3>
+                    <p class="afootmenu">
+                        <a href="http://mr-group.ru/">
+                            Застройщик "MR Group"
+                        </a>
+                    </p>
+                    <p class="afootmenu">
+                        <a href="http://capitalgroup.ru/">
+                            Компания "Capital Group"
+                        </a>
+                    </p>
+                    <p class="afootmenu">
+                        <a href="http://samoletgroup.ru">
+                            Застройщик Группа "Самолет"
+                        </a>
+                    </p>
+                </div>
+                <div class="footmenu">
+                    <h3 class="hfootmenu">
+                        Агенты
+                    </h3>
+                    <p class="afootmenu">
+                        <a href="https://uslugi.arkadb.ru">
+                            Агентство «Триумфальная арка»
+                        </a>
+                    </p>
+                    <p class="afootmenu">
+                        <a href="https://www.incom.ru/">
+                            Агентство «ИНКОМ-Недвижимость»
+                        </a>
+                    <p class="afootmenu">
+                        <a href="https://msk.etagi.com/">
+                            Агентство «Этажи Москва»
+                        </a>
+                    </p>
+                </div>
+                <div class="footmenu">
+                    <h3 class="hfootmenu">
+                        Контакты
+                    </h3>
+                    <p class="afootmenu">
+                        +7 (495) 777 66 44
+                    </p>
+                    <p class="afootmenu" href="https://www.incom.ru/">
+                        company_project@mail.ru
+                    </p>
+                </div>
+            </section>
+            <section class="container">
+                <h6>Copyright &copy; SAV 2022</h6>
+            </section>
+        </footer>
+    </body>
+</html>
