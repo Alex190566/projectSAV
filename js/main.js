@@ -63,6 +63,73 @@ function orderReCount() {
     point.find('.allsum span').html(allsum);
 }
 
+$('.all').on('click', (event) => {
+    $('.sale, .rent').attr('style', 'display: block')
+})
+
+$('.s').on('click', (event) => {
+    $('.sale').attr('style', 'display: block')
+    $('.rent').attr('style', 'display: none')
+})
+
+$('.r').on('click', (event) => {
+    $('.rent').attr('style', 'display: block')
+    $('.sale').attr('style', 'display: none')
+})
+
+$('.sc').on('click', (event) => {
+    $('.sale, .cottage').attr('style', 'display: block')
+    $('.rent, .flat, .land').attr('style', 'display: none')
+})
+
+$('.sf').on('click', (event) => {
+    $('.sale, .flat').attr('style', 'display: block')
+    $('.rent, .cottage, .land').attr('style', 'display: none')
+})
+
+$('.sl').on('click', (event) => {
+    $('.sale, .land').attr('style', 'display: block')
+    $('.rent, .cottage, .flat').attr('style', 'display: none')
+})
+
+$('.rc').on('click', (event) => {
+    $('.rent, .cottage').attr('style', 'display: block')
+    $('.sale, .land, .flat').attr('style', 'display: none')
+})
+
+$('.rf').on('click', (event) => {
+    $('.rent, .flat').attr('style', 'display: block')
+    $('.sale, .cottage, .land').attr('style', 'display: none')
+})
+
+$('.rl').on('click', (event) => {
+    $('.rent, .land').attr('style', 'display: block')
+    $('.sale, .cottage, .flat').attr('style', 'display: none')
+})
+
+function filterPrices() {
+    let min_ = +$('#amount1').val();
+    let max_ = +$('#amount2').val();
+    // let min1_ = +$('#amount3').val();
+    // let max1_ = +$('#amount4').val();
+    console.log(min_);
+    console.log(max_);
+    $('.cat-item').each(function () {
+        // let catprice = document.getElementsByClassName('catprice');
+        // console.log(document.getElementsByClassName('price')[0]);
+        // let price = document.getElementsByClassName('price');
+        // console.log(price[0]);
+        console.log(+$(this).html());
+        if ((+$(this).html() > max_) || (+$(this).html() < min_)) {
+            // $('.cat-item').addClass('hidden');
+            $(this).attr('style', 'display: none');
+        } else {
+            // $(this).removeClass('hidden')
+            $(this).attr('style', 'display: block');
+        }
+    });
+}
+
 $(function(){
     $('.topmenu a').each(function(){
         if (this.href == location.href.split('#')[0]) this.className = 'current';
@@ -152,6 +219,7 @@ $(function(){
             slide: function(event, ui) {
                 $('#amount1').val(ui.values[0]);
                 $('#amount2').val(ui.values[1]);
+                filterPrices();
             }
         });
         $('#amount1').on('change', function() {
@@ -168,6 +236,7 @@ $(function(){
                 $('#amount2').val(v2);
             }
             $('#slider-range').slider('values', [v1, v2]);
+            filterPrices();
         });
         $('#amount2').on('change', function() {
             let v1 = +$('#amount1').val();
@@ -183,6 +252,7 @@ $(function(){
                 $('#amount1').val(v1);
             }
             $('#slider-range').slider('values', [v1, v2]);
+            filterPrices();
         });
         $('#amount1').val(rangemin);
         $('#amount2').val(rangemax);
@@ -359,6 +429,7 @@ $(function(){
                 return;
             }
         }
+        alert('Объект добавлен в "Избранное"');
         basket.push(res);
         localStorage.setItem('basket', JSON.stringify(basket));
         console.log({basket})

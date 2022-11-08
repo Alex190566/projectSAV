@@ -311,7 +311,7 @@ footer {
     left: 0;
     right: 0;
     cursor: pointer;
-    z-index: 1;
+    z-index: 10;
 }
 
 .modal {
@@ -323,7 +323,7 @@ footer {
     height: 500px;
     top: 100px;
     padding: 40px;
-    z-index: 1;
+    z-index: 10;
     display: block;
 }
 
@@ -622,7 +622,7 @@ footer {
         left: 30px;
     }
 
-        .catmenu ul ul::before {
+    /* .catmenu ul ul::before {
             content: '\23f7';
             position: absolute;
             top: -30px;
@@ -633,7 +633,7 @@ footer {
 
     .catmenu .open::before {
         transform: rotateX(180deg);
-    }
+    } */
 
     .catmenu li li {
         font-size: 14px;
@@ -701,7 +701,7 @@ footer {
     /* display: table; */
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 0px;
     justify-content: center;
     align-items: center;
 }
@@ -717,6 +717,8 @@ footer {
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
+    margin-bottom: 8px;
+    margin-right: 8px;
 }
 
     .cat-item:hover {
@@ -1308,7 +1310,7 @@ footer {
     }
 
     .mapcont {
-        background: url(../images/Rectangle_201.png) center center no-repeat;
+        background: url(../images/Rectangle_203.png) center center no-repeat;
         height: 392px;
         width: 100%;
         margin: 25px auto 5px auto;
@@ -1316,72 +1318,96 @@ footer {
 }
 
 /* adaptive 3 */
-@media screen and (max-width:800px) {
+@media screen and (max-width:701px) {
 
     /* contacts */
 
-    /* .titcont {
-        width: 341px;
-        padding-top: 25px;
+    header input {
+        width: 192px;
+    }
+    header .container {
+        gap: 5px;
     }
 
-        .titcont h1 {
+    main .container {
+        margin-left: 10px;
+    }
+
+    .container {
+        min-width: 440px;
+    }
+
+    .footmenu {
+        padding-left: 36px;
+    }
+    .titcont {
+        width: 350px;
+    }
+
+   .titcont h1 {
             font-size: 24px;
             line-height: 28px;
-        }
+   }
 
         .titcont p {
-            margin-top: 32px;
+            /* margin-top: 32px;
             text-align: center;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.6); */
             font-size: 16px;
-        } */
+        }
 
-    .contacont {
+    /* .contacont {
         width: 100%;
         margin: 0 auto 0 auto;
-    }
+    } */
 
     .contcont {
-        margin: 57px auto 0 auto;
-        float: none;
+    padding-left: 22px;
+    margin-top: 30px;
     }
 
-    /* .sencont {
-        margin: 32px auto 0 auto;
-        height: 514px;
-        width: 343px;
-        float: none;
+    .sencont {
+        margin: 0 auto 0 auto;
+        height: 650px;
+        width: 320px;
+        /* float: none; */
     }
 
     .senduscont {
-        padding-top: 36px;
-        margin-left: 36px;
+        width: 275px;
+        margin-left: 22px;
+        padding-top: 30px;
         margin-bottom: 0px;
+        padding-left: 10px;
+        margin-top: 30px;
     }
 
-    .sendus .adr1cont {
+    /* .sendus .adr1cont {
         font-size: 16px;
-    }
+    } */
 
     .infocont {
-        margin-top: 20px;
+        width: 275px;
+        margin-left: 22px;
+        /* margin-top: 20px;
         margin-left: 36px;
         height: 71px;
-        width: 272px;
+        width: 272px; */
     }
 
     .messcont {
-        margin-top: 20px;
-        margin-left: 36px;
-        height: 117px;
-        width: 272px;
+        /* margin-top: 20px;
+           height: 117px;
+        */
+        margin-left: 22px;
+        width: 275px;
     }
 
     .infocont input {
-        margin-top: 0px;
+        padding-left: 22px;
+        /* margin-top: 0px;
         height: 46px;
-        padding-left: 23px;
+        */
     }
 
     .inpcont {
@@ -1394,15 +1420,28 @@ footer {
     }
 
     .submitcont {
+        width: 275px;
+        margin-left: 22px;
         margin-top: 46px;
-        margin-left: 36px;
-        height: 46px;
-        width: 272px;
-    } */
+        margin-top: 0;
+        /* height: 46px;
+        width: 272px; */
+    }
 
-    /* .mapcont {
-        background: url(../images/Rectangle_202.png) center center no-repeat;
-        height: 349px;
-        width: 100%;
-    } */
+    .mapcont {
+        display: none;
+    }
+    .topmenu a::before {
+        padding-right: 8px;
+    }
+    .actionobj {
+        min-width: 400px;
+    }
+    .action {
+        font: 16px/30px 'Roboto';
+    }
+    .catalog .container {
+        flex-wrap: wrap;
+        margin-left: 45px;
+    }
 }
