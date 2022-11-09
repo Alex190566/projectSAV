@@ -4,6 +4,8 @@ let rangemin = 0;
 let rangemax = 100000000;
 let rangemin1 = 0;
 let rangemax1 = 100000;
+let deal = '.sale, .rent';
+let deal1 = '';
 
 /* functions */
 function getModalWindow(idname) {
@@ -65,70 +67,186 @@ function orderReCount() {
 
 $('.all').on('click', (event) => {
     $('.sale, .rent').attr('style', 'display: block')
+    $('#amount1').val(rangemin);
+    $('#amount2').val(rangemax);
+    $('#amount3').val(rangemin1);
+    $('#amount4').val(rangemax1);
+    $('#slider-range').slider('values', [rangemin, rangemax]);
+    $('#slider-range1').slider('values', [rangemin1, rangemax1]);
+    deal = '.sale, .rent';
+    deal1 = '';
+    // filterPrices()
 })
 
 $('.s').on('click', (event) => {
     $('.sale').attr('style', 'display: block')
     $('.rent').attr('style', 'display: none')
+    $('#amount1').val(rangemin);
+    $('#amount2').val(rangemax);
+    $('#amount3').val(rangemin1);
+    $('#amount4').val(rangemax1);
+    $('#slider-range').slider('values', [rangemin, rangemax]);
+    $('#slider-range1').slider('values', [rangemin1, rangemax1]);
+    deal = '.sale';
+    deal1 = '.rent';
+    // filterPrices()
 })
 
 $('.r').on('click', (event) => {
     $('.rent').attr('style', 'display: block')
     $('.sale').attr('style', 'display: none')
+    $('#amount1').val(rangemin);
+    $('#amount2').val(rangemax);
+    $('#amount3').val(rangemin1);
+    $('#amount4').val(rangemax1);
+    $('#slider-range').slider('values', [rangemin, rangemax]);
+    $('#slider-range1').slider('values', [rangemin1, rangemax1]);
+    deal = '.rent';
+    deal1 = '.sale';
+    // filterPrices()
 })
 
 $('.sc').on('click', (event) => {
     $('.sale, .cottage').attr('style', 'display: block')
     $('.rent, .flat, .land').attr('style', 'display: none')
+    $('#amount1').val(rangemin);
+    $('#amount2').val(rangemax);
+    $('#amount3').val(rangemin1);
+    $('#amount4').val(rangemax1);
+    $('#slider-range').slider('values', [rangemin, rangemax]);
+    $('#slider-range1').slider('values', [rangemin1, rangemax1]);
+    deal = '.sale, .cottage';
+    deal1 = '.rent, .flat, .land';
+    // filterPrices()
 })
 
 $('.sf').on('click', (event) => {
     $('.sale, .flat').attr('style', 'display: block')
     $('.rent, .cottage, .land').attr('style', 'display: none')
+    $('#amount1').val(rangemin);
+    $('#amount2').val(rangemax);
+    $('#amount3').val(rangemin1);
+    $('#amount4').val(rangemax1);
+    $('#slider-range').slider('values', [rangemin, rangemax]);
+    $('#slider-range1').slider('values', [rangemin1, rangemax1]);
+    deal = '.sale, .flat';
+    deal1 = '.rent, .cottage, .land';
+    // filterPrices()
 })
 
 $('.sl').on('click', (event) => {
     $('.sale, .land').attr('style', 'display: block')
     $('.rent, .cottage, .flat').attr('style', 'display: none')
+    $('#amount1').val(rangemin);
+    $('#amount2').val(rangemax);
+    $('#amount3').val(rangemin1);
+    $('#amount4').val(rangemax1);
+    $('#slider-range').slider('values', [rangemin, rangemax]);
+    $('#slider-range1').slider('values', [rangemin1, rangemax1]);
+    deal = '.sale, .land';
+    deal1 = '.rent, .cottage, .flat';
+    // filterPrices()
 })
 
 $('.rc').on('click', (event) => {
     $('.rent, .cottage').attr('style', 'display: block')
     $('.sale, .land, .flat').attr('style', 'display: none')
+    $('#amount1').val(rangemin);
+    $('#amount2').val(rangemax);
+    $('#amount3').val(rangemin1);
+    $('#amount4').val(rangemax1);
+    $('#slider-range').slider('values', [rangemin, rangemax]);
+    $('#slider-range1').slider('values', [rangemin1, rangemax1]);
+    deal = '.rent, .cottage';
+    deal1 = '.sale, .land, .flat';
+    // filterPrices()
 })
 
 $('.rf').on('click', (event) => {
     $('.rent, .flat').attr('style', 'display: block')
     $('.sale, .cottage, .land').attr('style', 'display: none')
+    $('#amount1').val(rangemin);
+    $('#amount2').val(rangemax);
+    $('#amount3').val(rangemin1);
+    $('#amount4').val(rangemax1);
+    $('#slider-range').slider('values', [rangemin, rangemax]);
+    $('#slider-range1').slider('values', [rangemin1, rangemax1]);
+    deal = '.rent, .flat';
+    deal1 = '.sale, .cottage, .land';
+    // filterPrices()
 })
 
 $('.rl').on('click', (event) => {
     $('.rent, .land').attr('style', 'display: block')
     $('.sale, .cottage, .flat').attr('style', 'display: none')
+    $('#amount1').val(rangemin);
+    $('#amount2').val(rangemax);
+    $('#amount3').val(rangemin1);
+    $('#amount4').val(rangemax1);
+    $('#slider-range').slider('values', [rangemin, rangemax]);
+    $('#slider-range1').slider('values', [rangemin1, rangemax1]);
+    deal = '.rent, .land';
+    deal1 = '.sale, .cottage, .flat';
+    // filterPrices()
 })
 
 function filterPrices() {
     let min_ = +$('#amount1').val();
     let max_ = +$('#amount2').val();
-    // let min1_ = +$('#amount3').val();
-    // let max1_ = +$('#amount4').val();
+    let min1_ = +$('#amount3').val();
+    let max1_ = +$('#amount4').val();
     console.log(min_);
     console.log(max_);
+    console.log(min1_);
+    console.log(max1_);
     $('.cat-item').each(function () {
+        // let point = $('.cat-item');
+        // point.find('tbody tr').each(function () {
+        let price = +$(this).find('.price').html();
+        let square = +$(this).find('.square').html();
         // let catprice = document.getElementsByClassName('catprice');
         // console.log(document.getElementsByClassName('price')[0]);
         // let price = document.getElementsByClassName('price');
         // console.log(price[0]);
-        console.log(+$(this).html());
-        if ((+$(this).html() > max_) || (+$(this).html() < min_)) {
+        console.log(price);
+        console.log(square);
+        console.log(deal);
+        console.log(deal1);
+        // $(deal).attr('style', 'display: block');
+        if ((price > max_) || (price < min_) || (square > max1_) || (square < min1_)) {
             // $('.cat-item').addClass('hidden');
+            // $(deal1).attr('style', 'display: none');
             $(this).attr('style', 'display: none');
-        } else {
-            // $(this).removeClass('hidden')
-            $(this).attr('style', 'display: block');
         }
+        else {
+            // $(this).removeClass('hidden')
+            // $(deal).attr('style', 'display: block');
+            $(this).attr('style', 'display: block');
+            $(deal1).attr('style', 'display: none');
+            /* if ((square > max1_) || (square < min1_)) {
+                // $('.cat-item').addClass('hidden');
+                $(this).attr('style', 'display: none');
+            } else {
+                // $(this).removeClass('hidden')
+                $(this).attr('style', 'display: block');
+            } */
+        }
+        // deal = '.sale, .rent';
+        // deal1 = '';
     });
 }
+
+$('.filterbutton').on('click', (event) => {
+    $('.sale, .rent').attr('style', 'display: block');
+    $('#amount1').val(rangemin);
+    $('#amount2').val(rangemax);
+    $('#amount3').val(rangemin1);
+    $('#amount4').val(rangemax1);
+    $('#slider-range').slider('values', [rangemin, rangemax]);
+    $('#slider-range1').slider('values', [rangemin1, rangemax1]);
+    deal = '.sale, .rent';
+    deal1 = '';
+})
 
 $(function(){
     $('.topmenu a').each(function(){
@@ -267,6 +385,7 @@ $(function(){
             slide: function (event, ui) {
                 $('#amount3').val(ui.values[0]);
                 $('#amount4').val(ui.values[1]);
+                filterPrices();
             }
         });
         $('#amount3').on('change', function () {
@@ -283,6 +402,7 @@ $(function(){
                 $('#amount4').val(v2);
             }
             $('#slider-range1').slider('values', [v1, v2]);
+            filterPrices();
         });
         $('#amount4').on('change', function () {
             let v1 = +$('#amount3').val();
@@ -298,6 +418,7 @@ $(function(){
                 $('#amount3').val(v1);
             }
             $('#slider-range1').slider('values', [v1, v2]);
+            filterPrices();
         });
         $('#amount3').val(rangemin1);
         $('#amount4').val(rangemax1);

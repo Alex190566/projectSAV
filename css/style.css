@@ -658,27 +658,27 @@ footer {
     padding: 2px 5px;
     width: 50px;
     text-align: center;
-    margin: 0 5px;
+    margin: 0 -1px;
 }
 
 #amount1 {
     background: none;
-    width: 100px;
+    width: 115px;
 }
 
 #amount2 {
     background: none;
-    width: 100px;
+    width: 115px;
 }
 
 #amount3 {
     background: none;
-    width: 100px;
+    width: 115px;
 }
 
 #amount4 {
     background: none;
-    width: 100px;
+    width: 115px;
 }
 
 #slider-range {
@@ -695,6 +695,20 @@ footer {
 
 #slider-range1 .ui-widget-header {
     background: rgba(0,0,0,.25);
+}
+
+.filterbutton {
+    background: none;
+    width: 260px;
+    border: 1px solid white;
+    color: white;
+    padding: 2px 5px;
+    text-align: center;
+    margin: 20px auto auto auto;
+    border-radius: 10px;
+    height: 39px;
+    font: inherit;
+    box-sizing: border-box;
 }
 
 .catalog article {
